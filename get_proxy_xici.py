@@ -41,7 +41,7 @@ for row in rows:
     dict_old = dict(zip(keys, values))
     ip_list.append(replaceKeys(dict_old))
 
-url = 'https://pv.sohu.com/cityjson?ie=utf-8'
+link = 'https://pv.sohu.com/cityjson?ie=utf-8'
 
 for tr in ip_list:
     # print(tr['ip'], tr['port'], tr['type'])
@@ -49,7 +49,7 @@ for tr in ip_list:
         'https': 'https://'+ tr['ip'] + ':' + tr['port']
     }
     try:
-        req = requests.get(url, proxies=proxies, timeout=4.0)
+        req = requests.get(link, proxies=proxies, timeout=4.0)
         print(req.text)
     except:
         print('--- Failed ip: ' + tr['ip'])
